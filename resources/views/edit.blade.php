@@ -35,15 +35,19 @@
                     </div>
                 </div>
                 @foreach(json_decode($user->phone) as $index => $phone)
-                <div class="form-group">
-                    <label for="phone" class="col-md-4 control-label">Телефон</label>
+                <div class="form-group phone">
+                    <label for="phone{{ $index }}" class="col-md-4 control-label phone_input_label">Телефон</label>
                     <div class="col-md-6">
-                        <input id="phone" class="form-control" name="phone{{ $index }}" value="{{ $phone }}" autofocus>
+                        <input id="phone{{ $index }}" class="form-control phone_input" name="phone{{ $index }}" value="{{ $phone }}" autofocus>
                     </div>
                 </div>
                 @endforeach
+<div><div>
+        <button class="btn add_phone_edit">Добавить еще один телефон</button>
+    </div></div>
 
-                <button class="btn btn-primary">Добавить</button>
+
+                <button class="btn">Изменить</button>
             </form>
 
         </div>

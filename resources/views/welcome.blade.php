@@ -6,13 +6,14 @@
         <title>Телефонная книга</title>
     </head>
     <body>
-        <div class="content">
-            <div>
+
+        <div class="container">
+            <h2>
                 Телефонная книга
-            </div>
+            </h2>
 
             <div>
-                <div class="add"><button>Добавить новую запись</button></div>
+                <div class="add"><button class="btn">Добавить новую запись</button></div>
                 <form class="form-horizontal hidden add_form" method="post" action="{{ route('add') }}">
                     {{ csrf_field() }}
                     <div class="form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
@@ -42,17 +43,25 @@
                     </div>
 
                     <div class="form-group phone">
-                        <label for="phone" class="col-md-4 control-label">Телефон</label>
+                        <label for="phone" class="col-md-4 control-label phone_input_label">Телефон</label>
                         <div class="col-md-6">
                             <input id="phone" class="form-control phone_input" name="phone1" value="{{ old('phone') }}" autofocus>
                         </div>
                     </div>
 
+                    <div class="text-center">
+                        <div>
+                            <button class="btn add_phone">Добавить еще один телефон</button>
+                        </div>
+                        <br>
 
-                    <button class="btn btn-primary add_phone">Добавить еще один телефон</button>
+                        <div>
+                            <button class="btn">Сохранить</button>
+                            <button class="btn cancel">Отменить</button>
+                        </div>
+                    </div>
 
-                    <button class="btn btn-primary">Добавить</button>
-                    <button class="btn btn-primary cancel">Отменить</button>
+
                 </form>
 
                 <table class="table table-hover">
