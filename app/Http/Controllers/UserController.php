@@ -60,12 +60,10 @@ class UserController extends Controller
         $user = User::find($request->id);
 
         $phones = [];
-        for($i = 0; $i < 10; $i++) {
+        for($i = 1; $i < 11; $i++) {
             $var = 'phone' . $i;
             if(isset($request->$var)){
                 array_push($phones, $request->$var);
-            } else {
-                break;
             }
         }
 

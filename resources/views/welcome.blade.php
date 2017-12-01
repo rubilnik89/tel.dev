@@ -59,6 +59,7 @@
                             <button class="btn">Сохранить</button>
                             <button class="btn cancel">Отменить</button>
                         </div>
+                        <br>
                     </div>
 
 

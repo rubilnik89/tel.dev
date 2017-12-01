@@ -6,13 +6,42 @@
         <title>Просмотр пользователя</title>
     </head>
     <body>
-        <div class="content">
-            <div>{{ $user->first_name }}</div>
-            <div>{{ $user->last_name }}</div>
-            <div>{{ $user->middle_name }}</div>
-            @foreach(json_decode($user->phone) as $phone)
-                <div>{{ $phone }}</div>
-            @endforeach
+        <div class="container">
+            <h2>
+                Просмотр контакта
+            </h2>
+            <div>
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>Имя</th>
+                        <th>Фамилия</th>
+                        <th>Отчество</th>
+                        <th>Контакты</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <tr>
+                        <td>{{ $user->first_name }}</td>
+                        <td>{{ $user->last_name }}</td>
+                        <td>{{ $user->middle_name }}</td>
+                        <td>
+                            @foreach(json_decode($user->phone) as $phone)
+                                <div>{{ $phone }}</div>
+                            @endforeach
+                        </td>
+                        <td>
+                            <a title="просмотр" href="{{ route('single', ['id' => $user->id]) }}"><i class="glyphicon glyphicon-eye-open"></i></a>
+                            <a title="редактировать" href="{{ route('edit', ['id' => $user->id]) }}"><i class="glyphicon glyphicon-edit"></i></a>
+                            <a title="удалить" href="{{ route('delete', ['id' => $user->id]) }}"><i class="glyphicon glyphicon-remove"></i></a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
         </div>
     </body>
 </html>
